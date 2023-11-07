@@ -28,27 +28,48 @@ const evaluate = (firstNumber, operator, secondNumber) => {
     }
 }
 
+
 // Populating display
 const calculatorScreen = document.querySelector(".calculator-screen")
 const button = document.querySelectorAll("button")
 let display = []
+let placeholderNumber = []
+
+
 
 const click = [...button].forEach((button) => 
     button.addEventListener('click', (e) => {
+        // Making sure any empty placeholders are rid of
+        display = display.filter((num) => num !== "" || num !== NaN)
         if (e.target.textContent === "CLEAR") {
             calculatorScreen.innerHTML = ""
             display = []
-        } else if (e.target.textContent === "=") {
-            const operation = display.findIndex((number) => isNaN(number))
-            const firstNumber = display.slice(0, operation).join("")
-            const secondNumber = display.slice(operation + 1).join("")
-            const result = evaluate(parseInt(firstNumber), display[operation], parseInt(secondNumber))
-            calculatorScreen.innerHTML = result
-            display = []
+            placeholderNumber = []
+        } else if (isNaN(e.target.textContent)) {
+            // If we already have an operator, we will only add the number
+            if (display.length >= 2) {
+                // At this point, we should show the result of the calculation
+                display.push(parseInt(placeholderNumber.join("")))
+                let firstNumber = display[0]
+                let operator = display[1]
+                let secondNumber = display[2]
+                let result = evaluate(firstNumber, operator, secondNumber)
+                display = [result]
+                calculatorScreen.innerHTML = result
+            } else {
+                display.push(parseInt(placeholderNumber.join("")), e.target.textContent)
+                calculatorScreen.innerHTML += e.target.textContent
+            }
+            // Either way the placeholder should be emptied
+            placeholderNumber = []
+
         } else {
             calculatorScreen.innerHTML += e.target.textContent
-            display.push(e.target.textContent)
+            placeholderNumber.push(e.target.textContent)
         }
+
+        console.log(display)
+        console.log(placeholderNumber)
         
 }))
 
