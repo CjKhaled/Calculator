@@ -33,5 +33,20 @@ const evaluate = (firstNumber, operator, secondNumber) => {
     }
 }
 
+const calculatorScreen = document.querySelector(".calculator-screen")
+const button = document.querySelectorAll("button")
+let display = []
 
+const click = [...button].forEach((button) => 
+    button.addEventListener('click', (e) => {
+        if (e.target.textContent === "CLEAR") {
+            calculatorScreen.innerHTML = 0
+            display = []
+        } else {
+            calculatorScreen.innerHTML += e.target.textContent
+            display.push(e.target.textContent)
+            console.log(display)
+        }
+        
+}))
 
