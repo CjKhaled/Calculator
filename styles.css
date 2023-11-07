@@ -16,8 +16,12 @@
 
 .calculator-screen {
     width: 360px;
-    height: 90px;
+    height: 50px;
     border: solid black 1px;
+    display: flex;
+    font-size: 32px;
+    justify-content: end;
+    padding: 1rem
 }
 
 .clear-button #clear{

@@ -33,6 +33,7 @@ const evaluate = (firstNumber, operator, secondNumber) => {
     }
 }
 
+// Populating display
 const calculatorScreen = document.querySelector(".calculator-screen")
 const button = document.querySelectorAll("button")
 let display = []
@@ -40,7 +41,7 @@ let display = []
 const click = [...button].forEach((button) => 
     button.addEventListener('click', (e) => {
         if (e.target.textContent === "CLEAR") {
-            calculatorScreen.innerHTML = 0
+            calculatorScreen.innerHTML = ""
             display = []
         } else {
             calculatorScreen.innerHTML += e.target.textContent
