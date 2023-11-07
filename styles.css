@@ -1,0 +1,34 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.calculator-case {
+    display: inline-block;
+    border: solid red 1px;
+    padding: 2rem;
+}
+
+.calculator-screen {
+    width: 360px;
+    height: 90px;
+    border: solid black 1px;
+}
+
+.clear-button #clear{
+    height: 56.5px;
+    width: 82px;
+    margin: 0.5rem 0rem;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    height: 250px;
+    gap: 8px;
+}
