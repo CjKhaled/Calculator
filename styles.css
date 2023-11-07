@@ -10,7 +10,9 @@
 
 .calculator-case {
     display: inline-block;
-    border: solid red 1px;
+    border: solid #7CB9E8 1px;
+    border-radius: 25px;
+    background: #7CB9E8;
     padding: 2rem;
 }
 
@@ -21,6 +23,9 @@
     display: flex;
     font-size: 32px;
     justify-content: end;
+    border-radius: 25px;
+    align-items: center;
+    background-color: white;
     padding: 1rem
 }
 
@@ -35,4 +40,10 @@
     grid-template-columns: repeat(4, auto);
     height: 250px;
     gap: 8px;
+}
+
+button {
+    border-radius: 25px;
+    border: solid blue 1px;
+    background-color: wheat;
 }
