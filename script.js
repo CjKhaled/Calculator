@@ -15,11 +15,6 @@ const divide = (first, second) => {
     return first / second
 }
 
-// Variables to show
-let firstNumber = 1
-let operator = "+"
-let secondNumber = 1
-
 // Creating functionality
 const evaluate = (firstNumber, operator, secondNumber) => {
     if (operator === "+") {
@@ -43,11 +38,18 @@ const click = [...button].forEach((button) =>
         if (e.target.textContent === "CLEAR") {
             calculatorScreen.innerHTML = ""
             display = []
+        } else if (e.target.textContent === "=") {
+            const operation = display.findIndex((number) => isNaN(number))
+            const firstNumber = display.slice(0, operation).join("")
+            const secondNumber = display.slice(operation + 1).join("")
+            const result = evaluate(parseInt(firstNumber), display[operation], parseInt(secondNumber))
+            calculatorScreen.innerHTML = result
+            display = []
         } else {
             calculatorScreen.innerHTML += e.target.textContent
             display.push(e.target.textContent)
-            console.log(display)
         }
         
 }))
+
 
