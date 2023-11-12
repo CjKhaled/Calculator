@@ -19,7 +19,7 @@ https://cjkhaled.github.io/Calculator/
 <h2>Usage</h2>
 Enter numeric values using the on-screen buttons.
 Use the arithmetic operator buttons to perform calculations.
-Click the "C" button to clear the current input, or "CE" to reset the entire calculation.
+Click the "CLEAR" button to clear the current input.
 
 <h2>Reflections</h2>
 Building this calculator was a great experience. The most challenging part was the calculator's functionality- it was challenging, but rewarding to get more acquianted with event handling, DOM manipulation, and javascript logic. Throughout the entire development process, I honed my skills in debugging, while also getting more comfortable with version control. There are some areas I can improve in, such as being more concise in my code. This is a project I'll likely come back to and refine once I get better.
