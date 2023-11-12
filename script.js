@@ -39,8 +39,6 @@ let placeholderNumber = []
 
 const click = [...button].forEach((button) => 
     button.addEventListener('click', (e) => {
-        // Making sure any empty placeholders are rid of
-        display = display.filter((num) => num !== "" || num !== NaN)
         if (e.target.textContent === "CLEAR") {
             calculatorScreen.innerHTML = ""
             display = []
@@ -54,10 +52,21 @@ const click = [...button].forEach((button) =>
                 let operator = display[1]
                 let secondNumber = display[2]
                 let result = evaluate(firstNumber, operator, secondNumber)
-                display = [result]
-                calculatorScreen.innerHTML = result
+                if (e.target.textContent === "=") {
+                    display = [result]
+                    calculatorScreen.innerHTML = result
+                } else {
+                    display = [result, e.target.textContent]
+                    calculatorScreen.innerHTML = result + "" + e.target.textContent
+                }
+                
             } else {
-                display.push(parseInt(placeholderNumber.join("")), e.target.textContent)
+                if (placeholderNumber.length === 0) {
+                    display.push(e.target.textContent)
+                } else {
+                    display.push(parseInt(placeholderNumber.join("")), e.target.textContent)
+                }
+                
                 calculatorScreen.innerHTML += e.target.textContent
             }
             // Either way the placeholder should be emptied
