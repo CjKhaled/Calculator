@@ -1,6 +1,4 @@
 <h1>Simple Calculator</h1>
-![image](https://github.com/CjKhaled/Calculator/assets/141502409/d197c118-7e6f-4690-b4fd-30066e0d2a75)
-
 
 <h2>Overview</h2>
 This is a simple calculator web application created to strengthen fundamental skills in HTML, CSS, and JavaScript. It serves as a hands-on project to practice and demonstrate the basics of web development.
